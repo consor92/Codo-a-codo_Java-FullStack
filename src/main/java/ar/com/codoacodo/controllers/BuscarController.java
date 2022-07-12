@@ -21,7 +21,7 @@ public class BuscarController extends HttpServlet {
 
 		String clave = req.getParameter("clave");
 
-		ProductoDAO dao = new ProductoDAO(ServerHost.MySQL);
+		ProductoDAO dao = new ProductoDAO(ServerHost.PostgreSQL);
 		LinkedList<Producto> listado = dao.buscar(clave);
 
 		req.setAttribute("listado", listado);
