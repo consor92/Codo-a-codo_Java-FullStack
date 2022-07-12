@@ -84,14 +84,14 @@ public class ProductoDAO {
 	 * @param imagen
 	 * @param codigo
 	 */
-	public void crearProducto(String nombre, Float precio, String imagen, String codigo) {
+	public boolean crearProducto(String nombre, Float precio, String imagen, String codigo) {
 
 		Connection con = null;
 		do {
 			con = FactoryConnection.getInstace().getConnection(server);
 		} while (con == null);
 
-		String sql = "INSERT INTO PRODUCTO (nombre, precio,fecha_creacion,"
+		String sql = "INSER INTO PRODUCTO (nombre, precio,fecha_creacion,"
 				+ "imagen,codigo) VALUES( ? , ? , CURRENT_DATE , ? , ?)";
 
 		try {
@@ -106,8 +106,10 @@ public class ProductoDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
-
+		
+		return true;
 	}
 
 	/**

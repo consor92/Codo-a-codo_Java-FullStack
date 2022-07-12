@@ -3,12 +3,12 @@
 <html>
 <head>
 
-	<%@include file="head.jsp"%>
+<%@include file="head.jsp"%>
 <script type="text/javascript">
 	const alert = bootstrap.Alert.getOrCreateInstance('#myAlert')
 	alert.close()
-</script>	
-	
+</script>
+
 </head>
 
 <body>
@@ -18,13 +18,42 @@
 		<div class="container">
 			<section>
 				<h1>Listado</h1>
-				<div class="alert alert-danger alert-dismissible fade show"
+
+				<%
+				if (((List<Producto>) request.getAttribute("listado")).isEmpty()) {
+				%>
+				<div class="alert alert-warning alert-dismissible fade show"
 					role="alert">
-					<strong>Holy guacamole!</strong> You should check in on some of
-					those fields below.
+					<strong>Aviso!</strong> No se ah encontrado ninguna coincidencia en la busqueda.
 					<button type="button" class="btn-close" data-bs-dismiss="alert"
 						data-bs-target="#my-alert" aria-label="Close"></button>
 				</div>
+				<%
+				}
+				%>
+				
+				<%
+				String operacion = (String)request.getAttribute("ok");
+
+				if( operacion == "48" ) {
+				%>
+				<div class="alert alert-danger alert-dismissible fade show"
+					role="alert">
+					<strong>Aviso!</strong> Ah ocurrido un error al ingresar los datos.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						data-bs-target="#my-alert" aria-label="Close"></button>
+				</div>				
+				<% } else if (operacion == "1" ) { %>
+				<div class="alert alert-success alert-dismissible fade show"
+					role="alert">
+					<strong>ok!</strong> Se cargaron los datos con exito.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						data-bs-target="#my-alert" aria-label="Close"></button>
+				</div>				
+				<% } else { %>	
+				<strong>ok!</strong>
+				<% } %>
+	
 				<table class="table">
 					<thead>
 						<tr>

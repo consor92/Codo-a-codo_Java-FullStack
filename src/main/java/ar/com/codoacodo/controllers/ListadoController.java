@@ -22,8 +22,11 @@ public class ListadoController extends HttpServlet {
 		ProductoDAO dao = new ProductoDAO(ServerHost.PostgreSQL);
 		
 		LinkedList<Producto> listado = dao.listarProductos();
+		String ok = req.getParameter("successful");
+		
 		
 		req.setAttribute("listado", listado);
+		req.setAttribute("ok", ok);
 		
 		getServletContext().getRequestDispatcher("/listado.jsp").forward(req, resp);
 	}

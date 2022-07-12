@@ -23,6 +23,7 @@ public class BuscarController extends HttpServlet {
 
 		ProductoDAO dao = new ProductoDAO(ServerHost.PostgreSQL);
 		LinkedList<Producto> listado = dao.buscar(clave);
+		String vacio = Boolean.toString(listado.isEmpty());
 
 		req.setAttribute("listado", listado);
 
