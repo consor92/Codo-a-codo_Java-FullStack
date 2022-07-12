@@ -19,7 +19,7 @@ public class ListadoController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		ProductoDAO dao = new ProductoDAO(ServerHost.MySQL);
+		ProductoDAO dao = new ProductoDAO(ServerHost.PostgreSQL);
 		
 		LinkedList<Producto> listado = dao.listarProductos();
 		

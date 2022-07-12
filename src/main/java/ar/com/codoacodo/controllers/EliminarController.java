@@ -19,7 +19,7 @@ public class EliminarController extends HttpServlet {
 
 		String id = req.getParameter("id");
 
-		ProductoDAO dao = new ProductoDAO(ServerHost.MySQL);
+		ProductoDAO dao = new ProductoDAO(ServerHost.PostgreSQL);
 		dao.eliminar(id);
 
 		resp.sendRedirect(req.getContextPath() + "/api/ListadoController");

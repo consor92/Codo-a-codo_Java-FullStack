@@ -19,7 +19,7 @@ public class EditarController extends HttpServlet {
 
 		String id = req.getParameter("id");
 
-		ProductoDAO dao = new ProductoDAO(ServerHost.MySQL);
+		ProductoDAO dao = new ProductoDAO(ServerHost.PostgreSQL);
 		Producto prodFromDb = dao.obtenerPorId(Long.parseLong(id));
 
 		req.setAttribute("producto", prodFromDb);
