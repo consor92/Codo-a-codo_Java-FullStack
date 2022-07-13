@@ -34,9 +34,10 @@ public class EditarController extends HttpServlet {
 		String precio = req.getParameter("precio");
 		String imagen = req.getParameter("imagen");
 		String codigo = req.getParameter("codigo");
+		String descripcion = req.getParameter("descripcion");
 
-		ProductoDAO dao = new ProductoDAO(ServerHost.MySQL);
-		dao.actualizarProducto(codigo, nombre, precio);
+		ProductoDAO dao = new ProductoDAO(ServerHost.PostgreSQL);
+		dao.actualizarProducto(codigo, nombre, precio, imagen , descripcion);
 
 		resp.sendRedirect(req.getContextPath() + "/api/ListadoController");
 	}

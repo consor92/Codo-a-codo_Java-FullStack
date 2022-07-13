@@ -9,8 +9,9 @@ public class Producto {
 	private Date fecha; 
 	private String imagen; 
 	private String codigo;
+	private String descripcion;
 	
-	public Producto(Long idProducto, String nombre, Float precio, Date fecha, String imagen, String codigo) {
+	public Producto(Long idProducto, String nombre, Float precio, Date fecha, String imagen, String codigo , String descripcion) {
 		super();
 		this.idProducto = idProducto;
 		this.nombre = nombre;
@@ -18,6 +19,7 @@ public class Producto {
 		this.fecha = fecha;
 		this.imagen = imagen;
 		this.codigo = codigo;
+		this.descripcion = descripcion;
 	}
 
 	public Long getIdProducto() {
@@ -36,6 +38,14 @@ public class Producto {
 		this.nombre = nombre;
 	}
 
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}	
+	
 	public Float getPrecio() {
 		return precio;
 	}

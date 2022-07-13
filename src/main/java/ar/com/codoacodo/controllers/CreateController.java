@@ -21,9 +21,10 @@ public class CreateController extends HttpServlet {
 		String precio = req.getParameter("precio");
 		String imagen = req.getParameter("imagen");
 		String codigo = req.getParameter("codigo");
+		String descripcion = req.getParameter("descripcion");
 
 		ProductoDAO dao = new ProductoDAO(ServerHost.PostgreSQL);
-		boolean retorno =  dao.crearProducto(nombre, Float.parseFloat(precio), imagen, codigo) ;
+		boolean retorno =  dao.crearProducto(nombre, Float.parseFloat(precio), imagen, codigo , descripcion) ;
 		
 		resp.sendRedirect(req.getContextPath()+"/api/ListadoController?successful=" + (retorno ? 1 : 0 ) );
 	}

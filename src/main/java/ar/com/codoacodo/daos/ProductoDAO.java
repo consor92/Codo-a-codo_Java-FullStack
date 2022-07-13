@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -84,15 +83,15 @@ public class ProductoDAO {
 	 * @param imagen
 	 * @param codigo
 	 */
-	public boolean crearProducto(String nombre, Float precio, String imagen, String codigo) {
+	public boolean crearProducto(String nombre, Float precio, String imagen, String codigo, String descripcion) {
 
 		Connection con = null;
 		do {
 			con = FactoryConnection.getInstace().getConnection(server);
 		} while (con == null);
 
-		String sql = "INSER INTO PRODUCTO (nombre, precio,fecha_creacion,"
-				+ "imagen,codigo) VALUES( ? , ? , CURRENT_DATE , ? , ?)";
+		String sql = "INSERT INTO PRODUCTO (nombre, precio,fecha_creacion,"
+				+ "imagen, codigo , descripcion ) VALUES( ? , ? , CURRENT_DATE , ? , ? , ? )";
 
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
@@ -100,6 +99,7 @@ public class ProductoDAO {
 			st.setFloat(2, precio);
 			st.setString(3, imagen);
 			st.setString(4, codigo);
+			st.setString(5, descripcion);
 
 			st.execute();
 			con.close();
@@ -118,19 +118,21 @@ public class ProductoDAO {
 	 * @param nombre
 	 * @param precio
 	 */
-	public void actualizarProducto(String codigo, String nombre, String precio) {
+	public void actualizarProducto(String codigo, String nombre, String precio , String imagen , String descripcion) {
 		Connection con = null;
 		do {
 			con = FactoryConnection.getInstace().getConnection(server);
 		} while (con == null);
 
-		String sql = "UPDATE producto SET nombre = ?, precio = ? WHERE codigo = ?";
+		String sql = "UPDATE producto SET nombre = ?, precio = ? , imagen = ? , descripcion = ? WHERE codigo = ?";
 
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, nombre);
 			st.setFloat(2, Float.valueOf(precio));
-			st.setString(3, codigo);
+			st.setString(3, imagen);
+			st.setString(4, descripcion);
+			st.setString(5, codigo);		
 
 			st.executeUpdate();
 
@@ -203,8 +205,9 @@ public class ProductoDAO {
 		Date fecha = rs.getDate("fecha_creacion");
 		String imagen = rs.getString("imagen");
 		String codigo = rs.getString("codigo");
-
-		Producto prodFromDb = new Producto(idProducto, nombre, precio, fecha, imagen, codigo);
+		String descripcion = rs.getString("descripcion");
+			
+		Producto prodFromDb = new Producto(idProducto, nombre, precio, fecha, imagen, codigo , descripcion);
 
 		return prodFromDb;
 	}

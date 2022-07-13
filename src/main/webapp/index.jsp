@@ -1,18 +1,19 @@
 <html>
-<head>
+
 <%@include file="head.jsp"%>
-</head>
 
 <body>
+
 	<%@include file="navbar.jsp"%>
-	<main>
-		<div class="container">
-			<section>
-				<h1>ABM de productos</h1>
-				<h2>El Nuevo</h2>
-			</section>
-		</div>
+
+
+
+	<main class="page service-page">
+		<h1>Bienvenido a mi primer ABM</h1>
 	</main>
+
+
+
 	<%@include file="footer.jsp"%>
 </body>
 </html>
