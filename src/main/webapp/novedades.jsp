@@ -44,18 +44,18 @@
 							%>
 
 							<div class="col">
-								<div class="card text-white bg-primary mb-3" style="max-width: 20rem;" > 
+								<div class="card text-white bg-primary border-secondary mb-3" style="max-width: 20rem;" > 
 									<div class="card-header">
-										<h4 class="card-title text-Light"><strong><%=unProducto.getNombre()%></strong></h4>
+										<h4 class="card-title text-Light"><strong><%=unProducto.getNombre().toUpperCase()%></strong></h4>
 									</div>
 									<div class="card-body">
-									<p class="text-secondary card-text mb-0">
+									<p class="text-Success card-text mb-0">
 											Precio:
 											<%=unProducto.getPrecio()%>$
 										</p>
 									<img class="card-img-top w-100 d-block fit-cover"
 										style="height: 200px;" src="<%=request.getContextPath()%>/asset/img/<%=unProducto.getImagen()%>"/>					
-										<p class="card-text">Descripcion 1</p>
+										<p class="card-text"><%=unProducto.getDescripcion().toLowerCase()%></p>
 										<div class="d-flex">
 											<div>
 												<p class="fw-bold mb-0">Codigo</p>
@@ -83,11 +83,12 @@
 
 						</div>
 						<div>
-							<a class="carousel-control-prev" href="#carousel-1" role="button"
+							<a class="carousel-control-prev " href="#carousel-1" role="button"
 								data-bs-slide="prev"><span
 								class="carousel-control-prev-icon" aria-hidden="true">d</span><span
-								class="visually-hidden">Previous</span></a><a
-								class="carousel-control-next" href="#carousel-1" role="button"
+								class="visually-hidden">Previous</span></a>
+								<a
+								class="carousel-control-next " href="#carousel-1" role="button"
 								data-bs-slide="next"><span
 								class="carousel-control-next-icon" aria-hidden="true"></span><span
 								class="visually-hidden">Next</span></a>
