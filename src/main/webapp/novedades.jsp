@@ -35,8 +35,8 @@
 
 
 				<div class="carousel-item active">
-					<div class="container py-4 py-xl-5">
-						<div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+					<div class="container py-3 py-xl-5">
+						<div class="row gy-5 row-cols-1 row-cols-md-2 row-cols-xl-3">
 
 							<%
 							int cont = 0;
@@ -44,7 +44,7 @@
 							%>
 
 							<div class="col">
-								<div class="card text-white bg-primary border-secondary mb-3" style="max-width: 20rem;" > 
+								<div class="card text-white bg-primary border-secondary  mb-3" style="max-width: 20rem;" > 
 									<div class="card-header">
 										<h4 class="card-title text-Light"><strong><%=unProducto.getNombre().toUpperCase()%></strong></h4>
 									</div>
@@ -80,30 +80,34 @@
 							}
 							}
 							%>
-
 						</div>
-						<div>
-							<a class="carousel-control-prev " href="#carousel-1" role="button"
-								data-bs-slide="prev"><span
-								class="carousel-control-prev-icon" aria-hidden="true">d</span><span
-								class="visually-hidden">Previous</span></a>
-								<a
-								class="carousel-control-next " href="#carousel-1" role="button"
-								data-bs-slide="next"><span
-								class="carousel-control-next-icon" aria-hidden="true"></span><span
-								class="visually-hidden">Next</span></a>
-						</div>
-						
-						<ol class="carousel-indicators">
-							<li class="active" data-bs-target="#carousel-1"
-								data-bs-slide-to="0"></li>
-							<%  for(int i = 1 ; i <= (int)(cont / 3) ; i++) { 
-								String pag = String.valueOf(i);%>
-								<li data-bs-target="#carousel-1" data-bs-slide-to="<%pag.toString();%>"></li>
-							<% }  %>
-						</ol>
-						
 					</div>
+				</div>
+
+			</div>
+
+				<div>
+					<a class="carousel-control-prev " href="#carousel-1" role="button"
+						data-bs-slide="prev"><span
+						class="carousel-control-prev-icon" aria-hidden="true">d</span><span
+						class="visually-hidden">Previous</span></a>
+						<a
+						class="carousel-control-next " href="#carousel-1" role="button"
+						data-bs-slide="next"><span
+						class="carousel-control-next-icon" aria-hidden="true"></span><span
+						class="visually-hidden">Next</span></a>
+				</div>
+				
+				<ol class="carousel-indicators">
+					<li class="active" data-bs-target="#carousel-1"
+						data-bs-slide-to="0"></li>
+					<%  for(int i = 1 ; i <= (int)(cont / 3) ; i++) { 
+						String pag = String.valueOf(i);%>
+						<li data-bs-target="#carousel-1" data-bs-slide-to="<%pag.toString();%>"></li>
+					<% }  %>
+				</ol>
+						
+		</div>
 	</main>
 
 	<%@include file="footer.jsp"%>

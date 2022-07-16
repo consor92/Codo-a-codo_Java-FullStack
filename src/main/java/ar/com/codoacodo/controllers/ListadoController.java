@@ -22,11 +22,15 @@ public class ListadoController extends HttpServlet {
 		ProductoDAO dao = new ProductoDAO(ServerHost.PostgreSQL);
 		
 		LinkedList<Producto> listado = dao.listarProductos();
+		
+		int cantIndicesNav =listado.size() / 7 ;
+		
 		String ok = req.getParameter("successful");
 		
 		
 		req.setAttribute("listado", listado);
 		req.setAttribute("ok", ok);
+		req.setAttribute("nav", Integer.toString(cantIndicesNav));
 		
 		getServletContext().getRequestDispatcher("/listado.jsp").forward(req, resp);
 	}

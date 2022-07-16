@@ -74,7 +74,7 @@
 							%>
 							<tr class="">
 								<td><input class="form-check-input" type="checkbox"
-									value="" id="flexCheckDefault"></td>
+									value="<%=unProducto.getCodigo()%>" name="seleccion[]"></td>
 								<th scope="row"><%=unProducto.getIdProducto()%></th>
 								<td><%=unProducto.getNombre()%></td>
 								<td><%=unProducto.getPrecio()%></td>

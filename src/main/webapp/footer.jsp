@@ -1,12 +1,26 @@
-<footer class="page-footer bg-light text-center text-white">
-	<!-- Copyright -->
-	<div class="footer-copyright p-3"
-		style="background-color: rgba(0, 0, 0, 0.2);">
-		Desarrollado por Consorti Gonzalo en el Programa <a class="text-white"
-			href="https://www.buenosaires.gob.ar/educacion/codocodo/el-programa#">Codo-a-Codo</a>
-	</div>
 
-</footer>
+
+<div class="container">
+	<footer
+		class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+		<p class="col-md-4 mb-0 text-muted">&copy; Consorti Gonzalo en el
+			Programa Codo-a-Codo</p>
+
+		<ul class="nav col-md-4 justify-content-end">
+			<li class="nav-item"><a href="#home"
+				class="nav-link px-2 text-muted">Home</a></li>
+			<li class="nav-item"><a
+				href="<%=request.getContextPath()%>/alta.jsp"
+				class="nav-link px-2 text-muted">Altas</a></li>
+			<li class="nav-item"><a
+				href="<%=request.getContextPath()%>/api/NovedadesController"
+				class="nav-link px-2 text-muted">Novedades</a></li>
+			<li class="nav-item"><a
+				href="<%=request.getContextPath()%>/api/ListadoController"
+				" class="nav-link px-2 text-muted">Listado</a></li>
+		</ul>
+	</footer>
+</div>
 
 
 <script src="<%=request.getContextPath()%>/asset/js/bootstrap.min.js"></script>
@@ -17,3 +31,6 @@
 <script
 	src="<%=request.getContextPath()%>/asset/js/jquery-3.3.1.slim.min.js">
 </script>
+
+<script
+	src="<%=request.getContextPath()%>/asset/js/bootstrap.bundle.min.js"></script>

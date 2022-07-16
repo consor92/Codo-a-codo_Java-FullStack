@@ -3,6 +3,7 @@ package ar.com.codoacodo.controllers;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +13,13 @@ import ar.com.codoacodo.connection.ServerHost;
 import ar.com.codoacodo.daos.ProductoDAO;
 
 @WebServlet("/CreateController")
+@MultipartConfig
 public class CreateController extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.sendError(404);
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,9 +30,10 @@ public class CreateController extends HttpServlet {
 		String codigo = req.getParameter("codigo");
 		String descripcion = req.getParameter("descripcion");
 
+
 		ProductoDAO dao = new ProductoDAO(ServerHost.PostgreSQL);
-		boolean retorno =  dao.crearProducto(nombre, Float.parseFloat(precio), imagen, codigo , descripcion) ;
-		
-		resp.sendRedirect(req.getContextPath()+"/api/ListadoController?successful=" + (retorno ? 1 : 0 ) );
+		boolean retorno = dao.crearProducto(nombre, Float.parseFloat(precio), imagen, codigo, descripcion);
+
+		resp.sendRedirect(req.getContextPath() + "/api/ListadoController?successful=" + (retorno ? 1 : 0));
 	}
 }
