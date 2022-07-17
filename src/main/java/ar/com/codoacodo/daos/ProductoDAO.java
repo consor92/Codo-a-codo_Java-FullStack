@@ -83,7 +83,7 @@ public class ProductoDAO {
 	 * @param imagen
 	 * @param codigo
 	 */
-	public boolean crearProducto(String nombre, Float precio, String imagen, String codigo, String descripcion) {
+	public void crearProducto(String nombre, Float precio, String imagen, String codigo, String descripcion) {
 
 		Connection con = null;
 		do {
@@ -106,10 +106,8 @@ public class ProductoDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
 		}
 		
-		return true;
 	}
 
 	/**

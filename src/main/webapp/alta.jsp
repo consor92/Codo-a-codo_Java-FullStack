@@ -12,7 +12,7 @@
 				<h1>Ingreso de nuevos productos</h1>
 
 				<form method="post"
-					action="<%=request.getContextPath()%>/CreateController" enctype="multipart/form-data">
+					action="<%=request.getContextPath()%>/CreateController">
 					<div class="container position-relative">
 						<div class="row d-flex justify-content-center">
 							<div class="col-8">
