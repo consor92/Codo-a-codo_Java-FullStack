@@ -7,7 +7,7 @@
 			Programa Codo-a-Codo</p>
 
 		<ul class="nav col-md-4 justify-content-end">
-			<li class="nav-item"><a href="#home"
+			<li class="nav-item"><a href="<%=request.getContextPath()%>/#home"
 				class="nav-link px-2 text-muted">Home</a></li>
 			<li class="nav-item"><a
 				href="<%=request.getContextPath()%>/alta.jsp"

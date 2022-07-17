@@ -13,7 +13,7 @@ https://getbootstrap.com/docs/5.2/examples/features/
 
 	<%@include file="navbar.jsp"%>
 
-	<main class="page service-page" id="home">
+	<main class="page service-page" >
 		<br>
 		<h1 class="visually-hidden">Bienvenido a mi primer ABM</h1>
 
