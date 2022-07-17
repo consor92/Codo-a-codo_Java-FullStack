@@ -15,6 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 public class EliminarController extends HttpServlet {
 
 	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.sendError(404);
+	}
+	
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String id = req.getParameter("id");

@@ -26,4 +26,11 @@ public class ConsultarController extends HttpServlet {
 
 		getServletContext().getRequestDispatcher("/detalle.jsp").forward(req, resp);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.sendError(404);
+	}	
+	
 }

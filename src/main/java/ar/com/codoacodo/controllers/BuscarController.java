@@ -29,4 +29,11 @@ public class BuscarController extends HttpServlet {
 
 		getServletContext().getRequestDispatcher("/listado.jsp").forward(req, resp);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.sendError(404);
+	}
+	
 }

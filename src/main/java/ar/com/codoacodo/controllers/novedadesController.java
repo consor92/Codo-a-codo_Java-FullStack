@@ -19,6 +19,13 @@ import ar.com.codoacodo.dto.Producto;
 @WebServlet("/api/NovedadesController")
 public class novedadesController extends HttpServlet {
 
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.sendError(404);
+	}	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

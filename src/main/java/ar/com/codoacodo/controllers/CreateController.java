@@ -16,6 +16,7 @@ import ar.com.codoacodo.daos.ProductoDAO;
 @MultipartConfig
 public class CreateController extends HttpServlet {
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.sendError(404);
